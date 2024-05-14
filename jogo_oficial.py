@@ -20,7 +20,19 @@ FUNDO = pygame.transform.scale(FUNDO,(800,500))
 pou = Personagem("imagens/pou.png", 130, 120, 340, 360 )
 
 lista_comida = [Comida("imagens/aspargo.png", 60, 60, 120),
-                Comida("imagens/batata.png", 60, 60, 120),]
+                Comida("imagens/batata.png", 60, 60, 120),
+                Comida("imagens/bolinha.png", 60, 60, 120),
+                Comida("imagens/bolo.png", 60, 60, 120),
+                Comida("imagens/doritos.png", 60, 60, 120),
+                Comida("imagens/hotdog.png", 60, 60, 120),
+                Comida("imagens/repolho.png", 60, 60, 120),
+                Comida("imagens/sucrilhos.png", 60, 60, 120)]
+
+lista_obstaculos = [Comida("imagens/cd.png", 60, 60, 120),
+                    Comida("imagens/bigorna.png", 60, 60, 120),
+                    Comida("imagens/all star.png", 80, 60, 120),
+                    Comida("imagens/bomba.png", 60, 60, 120),
+                    Comida("imagens/carro.png", 60, 60, 120)]
 
 rodando = True #se enquanto o jogo estiver rodando, ele vai ser verdsdeiro, para sair do while é so por ele = false
 while rodando :
@@ -43,6 +55,13 @@ while rodando :
 
         if pou.mascara.overlap(comida.mascara,(comida.posiçãoX-pou.posiçãoX, comida.posiçãoY-pou.posiçãoY)):
             pass
+
+    for obstaculos in lista_obstaculos:
+        obstaculos.movimenta()
+        obstaculos.desenhar(tela)
+
+        if pou.mascara.overlap(obstaculos.mascara,(obstaculos.posiçãoX-pou.posiçãoX, obstaculos.posiçãoY-pou.posiçãoY)):
+            print("voce morreu")
 
 #atualizando a tela
     pygame.display.update()

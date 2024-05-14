@@ -15,7 +15,7 @@ class Comida:
 
         self.mascara = pygame.mask.from_surface(self.imagem)
 
-        self.velocidade = random.randint(1,10)
+        self.velocidade = random.randint(1,5)
 
     def movimenta(self):
         self.posiçãoY = self.posiçãoY + self.velocidade
