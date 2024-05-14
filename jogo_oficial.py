@@ -13,7 +13,7 @@ FUNDO = pygame.transform.scale(FUNDO,(800,500))
 
 # Carregando imagens
 # Criando mais personagens
-pou = Personagem("imagem/pou.png", 90, 80, 80, 10 )
+pou = Personagem("imagens/pou.png", 130, 120, 340, 360 )
 
 rodando = True #se enquanto o jogo estiver rodando, ele vai ser verdsdeiro, para sair do while é so por ele = false
 while rodando :
@@ -26,6 +26,10 @@ while rodando :
             rodando = False #fechando o programa se clicar no X
     
     tela.blit(FUNDO,(0,0))
+
+    pou.andar()
+    pou.desenhar(tela)
+    
 
 #atualizando a tela
     pygame.display.update()

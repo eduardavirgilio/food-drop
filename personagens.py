@@ -29,11 +29,3 @@ class Personagem:
         if teclas[pygame.K_LEFT]:
             if self.posiçãoX > 0:
                 self.posiçãoX = self.posiçãoX - 5
-
-        if teclas[pygame.K_UP]:
-            if self.posiçãoY > 0:
-                self.posiçãoY = self.posiçãoY - 5
-
-        if teclas[pygame.K_DOWN]:
-            if self.posiçãoY < 450:
-                self.posiçãoY = self.posiçãoY + 5
