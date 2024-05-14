@@ -8,6 +8,7 @@ pygame.init() #iniciando os módulos básicos do pygame
 pygame.mixer.init()
 
 som = pygame.mixer.Sound('musica.mp3')
+comendo = pygame.mixer.Sound('comendo.mp3')
 
 tela = pygame.display.set_mode((800, 500)) #costruindo a tela
 pygame.display.set_caption("★ food drop") #mudando o nome do jogo
@@ -33,6 +34,8 @@ lista_comida = [Comida("imagens/aspargo.png", 60, 60, 120),
                 Comida("imagens/bolinha.png", 60, 60, 120),
                 Comida("imagens/bolo.png", 60, 60, 120),
                 Comida("imagens/doritos.png", 60, 60, 120),]
+
+lista_pocao = [Comida("imagens/pocao.png", 60, 60, 120)]
 
 lista_obstaculos = [Comida("imagens/cd.png", 60, 60, 120),
                     Comida("imagens/all star.png", 80, 60, 120),
@@ -68,6 +71,15 @@ while rodando :
             if pou.mascara.overlap(comida.mascara,(comida.posiçãoX-pou.posiçãoX, comida.posiçãoY-pou.posiçãoY)):
                 comida.posiçãoY = 850
                 pontos = pontos + 1
+                #comendo.play()
+
+        #for pocao in lista_pocao:
+            #pocao.movimenta()
+            #pocao.desenhar(tela)
+
+            #if pou.mascara.overlap(pocao.mascara,(pocao.posiçãoX-pou.posiçãoX,pocao.posiçãoY-pou.posiçãoY)):
+                #comida.posiçãoY = 850
+                #pontos = pontos + 5
 
         for obstaculos in lista_obstaculos:
             obstaculos.movimenta()
