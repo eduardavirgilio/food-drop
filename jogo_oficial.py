@@ -17,11 +17,12 @@ fonte = pygame.font.SysFont("Cooper Black",28, False, False)
 
 pontos = 0
 
-vidas = 0
+vidas = 5
 
 # Carregando imagens
 # Criando mais personagens
 pou = Personagem("imagens/pou.png", 130, 120, 340, 360 )
+fim = Personagem("imagens/Fim de Jogo.png", 800, 500, 0, 0)
 
 lista_comida = [Comida("imagens/aspargo.png", 60, 60, 120),
                 Comida("imagens/batata.png", 60, 60, 120),
@@ -39,36 +40,45 @@ while rodando :
     #tratamento de eventos
     for evento in pygame.event.get(): #esse comando da a lista
         if evento.type == pygame.MOUSEBUTTONDOWN:
-            print("vc clicou")
+            if vidas >= 0:
+                pygame.MOUSEBUTTONDOWN
+                vidas = 5
+                pontos = 0
         if evento.type == pygame.QUIT: #VARIAVEL EM MAIUSCULO SÃO CONSTANTES, OU SEJA, NÃO MUDAM
             rodando = False #fechando o programa se clicar no X
     
     tela.blit(FUNDO,(0,0))
 
-    pou.andar()
-    pou.desenhar(tela)
+    if vidas == 0 :
+       fim.desenhar(tela)
+    else:
 
-    for comida in lista_comida:
-        comida.movimenta()
-        comida.desenhar(tela)
+        pou.andar()
+        pou.desenhar(tela)
 
-        if pou.mascara.overlap(comida.mascara,(comida.posiçãoX-pou.posiçãoX, comida.posiçãoY-pou.posiçãoY)):
-            comida.posiçãoY = 850
-            pontos = pontos + 1
+        for comida in lista_comida:
+            comida.movimenta()
+            comida.desenhar(tela)
 
-    for obstaculos in lista_obstaculos:
-        obstaculos.movimenta()
-        obstaculos.desenhar(tela)
+            if pou.mascara.overlap(comida.mascara,(comida.posiçãoX-pou.posiçãoX, comida.posiçãoY-pou.posiçãoY)):
+                comida.posiçãoY = 850
+                pontos = pontos + 1
 
-        if pou.mascara.overlap(obstaculos.mascara,(obstaculos.posiçãoX-pou.posiçãoX, obstaculos.posiçãoY-pou.posiçãoY)):
-            print("voce morreu")
-            obstaculos.posiçãoY = 850
-            pontos = pontos - 1
-            if vidas > 5 :
-                
-            
+        for obstaculos in lista_obstaculos:
+            obstaculos.movimenta()
+            obstaculos.desenhar(tela)
 
-    texto_pontuacao = fonte.render(f"Pontuação: {pontos}", True, (255,0,0))
+            if pou.mascara.overlap(obstaculos.mascara,(obstaculos.posiçãoX-pou.posiçãoX, obstaculos.posiçãoY-pou.posiçãoY)):
+                print("voce morreu")
+                obstaculos.posiçãoY = 850
+                #pontos = pontos - 1
+                vidas = vidas - 1
+
+    texto_pontuacao = fonte.render(f"vidas: {vidas}", True, (255,0,0))
+
+    tela.blit(texto_pontuacao,(0,25))
+
+    texto_pontuacao = fonte.render(f"pontuação: {pontos}", True, (255,0,0))
 
     tela.blit(texto_pontuacao,(0,0))
 
