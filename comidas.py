@@ -19,8 +19,8 @@ class Comida:
 
     def movimenta(self):
         self.posiçãoY = self.posiçãoY + self.velocidade
-        if self.posiçãoY < 0:
-            self.posiçãoY = 850
+        if self.posiçãoY > 500:
+            self.posiçãoY = -160
             
          
     def desenhar(self, tela):
