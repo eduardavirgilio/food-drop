@@ -21,6 +21,8 @@ class Comida:
         self.posiçãoY = self.posiçãoY + self.velocidade
         if self.posiçãoY > 500:
             self.posiçãoY = -160
+            self.velocidade = random.randint(1,5)
+            self.posiçãoX = random.randint(1,800)
             
          
     def desenhar(self, tela):
