@@ -19,7 +19,7 @@ FUNDO = pygame.transform.scale(FUNDO,(800,500))
 # Criando mais personagens
 pou = Personagem("imagens/pou.png", 130, 120, 340, 360 )
 
-lista_comida = [Comida(f"imagens/aspargo.png", 60, 60, 120)]
+lista_comida = [Comida("imagens/aspargo.png", 60, 60, 120)]
 
 rodando = True #se enquanto o jogo estiver rodando, ele vai ser verdsdeiro, para sair do while é so por ele = false
 while rodando :
@@ -39,7 +39,9 @@ while rodando :
     for comida in lista_comida:
         comida.movimenta()
         comida.desenhar(tela)
-    
+
+        if pou.mascara.overlap(comida.mascara,(comida.posiçãoX-pou.posiçãoX, comida.posiçãoY-pou.posiçãoY)):
+            pass
 
 #atualizando a tela
     pygame.display.update()
