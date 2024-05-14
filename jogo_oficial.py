@@ -5,6 +5,10 @@ import random
 
 pygame.init() #iniciando os módulos básicos do pygame
 
+pygame.mixer.init()
+
+som = pygame.mixer.Sound('musica.mp3')
+
 tela = pygame.display.set_mode((800, 500)) #costruindo a tela
 pygame.display.set_caption("★ food drop") #mudando o nome do jogo
 
@@ -46,6 +50,7 @@ while rodando :
                 pontos = 0
         if evento.type == pygame.QUIT: #VARIAVEL EM MAIUSCULO SÃO CONSTANTES, OU SEJA, NÃO MUDAM
             rodando = False #fechando o programa se clicar no X
+    som.play()
     
     tela.blit(FUNDO,(0,0))
 
