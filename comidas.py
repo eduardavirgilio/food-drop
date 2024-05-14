@@ -2,7 +2,7 @@ import pygame
 import random
 
 class Comida:  
-    def __init__(self, arquivo_imagem, largura_imagem, altura_imagem, x_inicial, y_inicial):
+    def __init__(self, arquivo_imagem, largura_imagem, altura_imagem, y_inicial):
         self.imagem = pygame.image.load(arquivo_imagem)
 
         self.largura = largura_imagem
@@ -18,9 +18,9 @@ class Comida:
         self.velocidade = random.randint(1,10)
 
     def movimenta(self):
-        self.posiçãoY = self.posiçãoY - self.velocidade
-        if self.posiçãoX < -200:
-            self.posiçãoX = 850
+        self.posiçãoY = self.posiçãoY + self.velocidade
+        if self.posiçãoY < -800:
+            self.posiçãoY = 100
          
     def desenhar(self, tela):
         tela.blit(self.imagem,(self.posiçãoX, self.posiçãoY))

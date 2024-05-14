@@ -13,13 +13,13 @@ clock = pygame.time.Clock() #relogio para controlar o FPS
 FUNDO = pygame.image.load("imagens/fundo.png")
 FUNDO = pygame.transform.scale(FUNDO,(800,500))
 
-x_aleatorio = random.randint(1,800)
+
 
 # Carregando imagens
 # Criando mais personagens
 pou = Personagem("imagens/pou.png", 130, 120, 340, 360 )
 
-lista_comida = [Comida(f"imagens/aspargo.png", 60, 60, {x_aleatorio}, 120)]
+lista_comida = [Comida(f"imagens/aspargo.png", 60, 60, 120)]
 
 rodando = True #se enquanto o jogo estiver rodando, ele vai ser verdsdeiro, para sair do while é so por ele = false
 while rodando :
