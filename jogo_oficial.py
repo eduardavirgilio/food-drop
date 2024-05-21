@@ -53,6 +53,10 @@ while rodando :
                 pontos = 0
         if evento.type == pygame.QUIT: #VARIAVEL EM MAIUSCULO SÃO CONSTANTES, OU SEJA, NÃO MUDAM
             rodando = False #fechando o programa se clicar no X
+        #if evento.key == pygame.K_SPACE < 3 :
+        if evento.type == pygame.KEYDOWN:
+            if evento.key == pygame.K_SPACE:
+                vidas = 5
 
         
     som.play()
@@ -73,6 +77,8 @@ while rodando :
             if pou.mascara.overlap(comida.mascara,(comida.posiçãoX-pou.posiçãoX, comida.posiçãoY-pou.posiçãoY)):
                 comida.posiçãoY = 850
                 pontos = pontos + 1
+                comendo.set_volume(6.0)
+                comendo.play()
                 #comendo.play()
 
         #for pocao in lista_pocao:
@@ -93,8 +99,8 @@ while rodando :
                 #pontos = pontos - 1
                 vidas = vidas - 1
 
-        #if evento.type == pygame.K_SPACE:
-            #vidas = 5
+        
+        
 
 
 
