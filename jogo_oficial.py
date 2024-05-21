@@ -53,6 +53,8 @@ while rodando :
                 pontos = 0
         if evento.type == pygame.QUIT: #VARIAVEL EM MAIUSCULO SÃO CONSTANTES, OU SEJA, NÃO MUDAM
             rodando = False #fechando o programa se clicar no X
+
+        
     som.play()
     
     tela.blit(FUNDO,(0,0))
@@ -78,8 +80,8 @@ while rodando :
             #pocao.desenhar(tela)
 
             #if pou.mascara.overlap(pocao.mascara,(pocao.posiçãoX-pou.posiçãoX,pocao.posiçãoY-pou.posiçãoY)):
-                #comida.posiçãoY = 850
-                #pontos = pontos + 5
+                #vidas = 5
+                #pocao.posiçãoY = 850
 
         for obstaculos in lista_obstaculos:
             obstaculos.movimenta()
@@ -91,6 +93,11 @@ while rodando :
                 #pontos = pontos - 1
                 vidas = vidas - 1
 
+        #if evento.type == pygame.K_SPACE:
+            #vidas = 5
+
+
+
     texto_pontuacao = fonte.render(f"vidas: {vidas}", True, (255,0,0))
 
     tela.blit(texto_pontuacao,(0,25))
@@ -98,6 +105,8 @@ while rodando :
     texto_pontuacao = fonte.render(f"pontuação: {pontos}", True, (255,0,0))
 
     tela.blit(texto_pontuacao,(0,0))
+
+    
 
 
 #atualizando a tela
