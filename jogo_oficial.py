@@ -24,6 +24,8 @@ pontos = 0
 
 vidas = 5
 
+contador = 0
+
 # Carregando imagens
 # Criando mais personagens
 pou = Personagem("imagens/pou.png", 130, 120, 340, 360 )
@@ -53,10 +55,12 @@ while rodando :
                 pontos = 0
         if evento.type == pygame.QUIT: #VARIAVEL EM MAIUSCULO SÃO CONSTANTES, OU SEJA, NÃO MUDAM
             rodando = False #fechando o programa se clicar no X
-        #if evento.key == pygame.K_SPACE < 3 :
-        if evento.type == pygame.KEYDOWN:
-            if evento.key == pygame.K_SPACE:
-                vidas = 5
+        
+        if contador <= 0 :
+            if evento.type == pygame.KEYDOWN:
+                contador = contador - 1
+                if evento.key == pygame.K_SPACE:
+                    vidas = 5
 
         
     som.play()
